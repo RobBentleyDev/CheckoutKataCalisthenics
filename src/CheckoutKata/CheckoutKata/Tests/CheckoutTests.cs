@@ -1,8 +1,8 @@
 using NUnit.Framework;
 
-namespace CheckoutKata
+namespace CheckoutKata.Tests
 {
-    public class Tests
+    public class CheckoutTests
     {
         [Test]
         public void Test1()
