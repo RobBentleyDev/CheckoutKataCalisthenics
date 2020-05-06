@@ -36,5 +36,17 @@ namespace CheckoutKata.Tests
 
             Assert.AreEqual(expectedTotal, actualTotal);
         }
+
+        [Test]
+        public void testWhenIScanItemAAndBThenTotalIsEighty()
+        {
+            Money expectedTotal = new Money(80);
+            Checkout checkout = new Checkout();
+            checkout.Scan(new ItemCode("A"));
+            checkout.Scan(new ItemCode("B"));
+            Money actualTotal = checkout.Total();
+
+            Assert.AreEqual(expectedTotal, actualTotal);
+        }
     }
 }
