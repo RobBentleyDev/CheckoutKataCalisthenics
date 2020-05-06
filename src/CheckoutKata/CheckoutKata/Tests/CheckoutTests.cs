@@ -1,3 +1,4 @@
+using CheckoutKata.Main;
 using NUnit.Framework;
 
 namespace CheckoutKata.Tests
@@ -5,9 +6,35 @@ namespace CheckoutKata.Tests
     public class CheckoutTests
     {
         [Test]
-        public void Test1()
+        public void testWhenIScanNothingThenTotalIsZero()
         {
-            Assert.Pass();
+            Money expectedTotal = new Money(0);
+            Checkout checkout = new Checkout();
+            Money actualTotal = checkout.Total();
+
+            Assert.AreEqual(expectedTotal, actualTotal);
+        }
+
+        [Test]
+        public void testWhenIScanItemAThenTotalIsFifty()
+        {
+            Money expectedTotal = new Money(50);
+            Checkout checkout = new Checkout();
+            checkout.Scan(new ItemCode("A"));
+            Money actualTotal = checkout.Total();
+
+            Assert.AreEqual(expectedTotal, actualTotal);
+        }
+
+        [Test]
+        public void testWhenIScanItemBThenTotalIsThirty()
+        {
+            Money expectedTotal = new Money(30);
+            Checkout checkout = new Checkout();
+            checkout.Scan(new ItemCode("B"));
+            Money actualTotal = checkout.Total();
+
+            Assert.AreEqual(expectedTotal, actualTotal);
         }
     }
 }
